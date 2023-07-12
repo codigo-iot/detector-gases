@@ -1,4 +1,4 @@
-#define MQ6_PIN 34
+#define MQ6_PIN 14
 
 float R0 = 9.83; // Valor de la resistencia del sensor en aire limpio
 
