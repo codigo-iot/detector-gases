@@ -1,3 +1,21 @@
+/*
+
+Creado por: Hugo Escalpelo
+Fecha: 20230710
+
+Este programa es para probar el sensor de gas MQ-6, el cual es sensible
+a gas LP. Es muy importante notar que este programa no parte de un método
+de calibración, por lo que debe ser ajustado segun las condiciones
+indicadas en el datasheet del fabricante.
+
+Conexiones:
+
+ESP32CAM    MQ6
+5v----------VCC
+GND---------GND
+GPIO14------A0
+*/
+
 #define MQ6_PIN 14
 
 float R0 = 9.83; // Valor de la resistencia del sensor en aire limpio
