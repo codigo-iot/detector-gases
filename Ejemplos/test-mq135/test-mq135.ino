@@ -1,4 +1,22 @@
-#define MQ135_PIN 35
+/*
+
+Creado por: Hugo Escalpelo
+Fecha: 20230710
+
+Este programa es para probar el sensor de gas MQ-135, el cual es sensible
+a CO2. Es muy importante notar que este programa no parte de un método
+de calibración, por lo que debe ser ajustado segun las condiciones
+indicadas en el datasheet del fabricante.
+
+Conexiones:
+
+ESP32CAM    MQ135
+5v----------VCC
+GND---------GND
+GPIO14------A0
+*/
+
+#define MQ135_PIN 15
 
 float R0 = 398.63; // Valor de la resistencia del sensor en aire limpio
 
