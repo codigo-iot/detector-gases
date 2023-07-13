@@ -1,0 +1,550 @@
+[
+    {
+        "id": "f4339795f6d01e9a",
+        "type": "tab",
+        "label": "Flow 8",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "81b2f3951f33efad",
+        "type": "serial in",
+        "z": "f4339795f6d01e9a",
+        "name": "",
+        "serial": "fd9c9ef49609cab7",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "63c5398fca5f31a2",
+                "3423ca101cd792af"
+            ]
+        ]
+    },
+    {
+        "id": "f7cb8cac15d97c52",
+        "type": "debug",
+        "z": "f4339795f6d01e9a",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "63c5398fca5f31a2",
+        "type": "string",
+        "z": "f4339795f6d01e9a",
+        "name": "",
+        "methods": [
+            {
+                "name": "trimRight",
+                "params": []
+            },
+            {
+                "name": "split",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": ","
+                    },
+                    {
+                        "type": "num",
+                        "value": "3"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 470,
+        "y": 160,
+        "wires": [
+            [
+                "66f69a2d565d2b8d",
+                "6d1ef151cfabd712",
+                "63e501c81bb37f71"
+            ]
+        ]
+    },
+    {
+        "id": "81a6ba4c49969993",
+        "type": "inject",
+        "z": "f4339795f6d01e9a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0.00,344.99,2",
+        "payloadType": "str",
+        "x": 150,
+        "y": 240,
+        "wires": [
+            [
+                "63c5398fca5f31a2",
+                "3423ca101cd792af"
+            ]
+        ]
+    },
+    {
+        "id": "66f69a2d565d2b8d",
+        "type": "function",
+        "z": "f4339795f6d01e9a",
+        "name": "MQ6",
+        "func": "msg.payload = msg.payload[0];\nmsg.topic = \"MQ6\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 160,
+        "wires": [
+            [
+                "c01389cc71229494"
+            ]
+        ]
+    },
+    {
+        "id": "6d1ef151cfabd712",
+        "type": "function",
+        "z": "f4339795f6d01e9a",
+        "name": "MQ135",
+        "func": "msg.payload = msg.payload[1];\nmsg.topic = \"MQ135\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 220,
+        "wires": [
+            [
+                "b3305ab5b1c58d6f"
+            ]
+        ]
+    },
+    {
+        "id": "c01389cc71229494",
+        "type": "ui_gauge",
+        "z": "f4339795f6d01e9a",
+        "name": "",
+        "group": "da2705ab25db5adf",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gas LP",
+        "label": "PPM",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "650",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 980,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b3305ab5b1c58d6f",
+        "type": "ui_gauge",
+        "z": "f4339795f6d01e9a",
+        "name": "",
+        "group": "da2705ab25db5adf",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "CO2",
+        "label": "PPM",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 970,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "b4b489437e70229d",
+        "type": "ui_gauge",
+        "z": "f4339795f6d01e9a",
+        "name": "",
+        "group": "da2705ab25db5adf",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Semaforo",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "2",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 980,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "63e501c81bb37f71",
+        "type": "function",
+        "z": "f4339795f6d01e9a",
+        "name": "Semaforo",
+        "func": "msg.payload = msg.payload[2];\nmsg.topic = \"Semaforo\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 280,
+        "wires": [
+            [
+                "b4b489437e70229d"
+            ]
+        ]
+    },
+    {
+        "id": "3423ca101cd792af",
+        "type": "function",
+        "z": "f4339795f6d01e9a",
+        "name": "function 2",
+        "func": "msg.payload = \"Hugo Vargas,\" + msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 360,
+        "wires": [
+            [
+                "89bed47c2f6e8458"
+            ]
+        ]
+    },
+    {
+        "id": "89bed47c2f6e8458",
+        "type": "mqtt out",
+        "z": "f4339795f6d01e9a",
+        "name": "",
+        "topic": "codigoIoT/esp32/detectorGas",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f1868b0174764182",
+        "x": 1050,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "3b8c0c9097ef8079",
+        "type": "mqtt in",
+        "z": "f4339795f6d01e9a",
+        "name": "",
+        "topic": "codigoIoT/esp32/detectorGas",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f1868b0174764182",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 500,
+        "wires": [
+            [
+                "5aa80b173a10be66",
+                "f7cb8cac15d97c52"
+            ]
+        ]
+    },
+    {
+        "id": "5aa80b173a10be66",
+        "type": "string",
+        "z": "f4339795f6d01e9a",
+        "name": "",
+        "methods": [
+            {
+                "name": "trimRight",
+                "params": []
+            },
+            {
+                "name": "split",
+                "params": [
+                    {
+                        "type": "str",
+                        "value": ","
+                    },
+                    {
+                        "type": "num",
+                        "value": "4"
+                    }
+                ]
+            }
+        ],
+        "prop": "payload",
+        "propout": "payload",
+        "object": "msg",
+        "objectout": "msg",
+        "x": 470,
+        "y": 500,
+        "wires": [
+            [
+                "9e92dad954f3fa2a",
+                "3b4b5ceb6ee0b76e"
+            ]
+        ]
+    },
+    {
+        "id": "9e92dad954f3fa2a",
+        "type": "function",
+        "z": "f4339795f6d01e9a",
+        "name": "MQ6",
+        "func": "msg.topic2 = msg.payload[0];\nmsg.payload = msg.payload[1];\nmsg.topic = msg.topic2;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 500,
+        "wires": [
+            [
+                "bc467a49377b24ca"
+            ]
+        ]
+    },
+    {
+        "id": "3b4b5ceb6ee0b76e",
+        "type": "function",
+        "z": "f4339795f6d01e9a",
+        "name": "MQ135",
+        "func": "msg.topic2 = msg.payload[0];\nmsg.payload = msg.payload[2];\nmsg.topic = msg.topic2;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 560,
+        "wires": [
+            [
+                "76669d314583f0af"
+            ]
+        ]
+    },
+    {
+        "id": "bc467a49377b24ca",
+        "type": "ui_chart",
+        "z": "f4339795f6d01e9a",
+        "name": "",
+        "group": "d727afbe0879bc63",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "MQ6",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "650",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 970,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "76669d314583f0af",
+        "type": "ui_chart",
+        "z": "f4339795f6d01e9a",
+        "name": "",
+        "group": "d727afbe0879bc63",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "MQ135",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 980,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fd9c9ef49609cab7",
+        "type": "serial-port",
+        "serialport": "/dev/ttyUSB0",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "da2705ab25db5adf",
+        "type": "ui_group",
+        "name": "Instantaneo",
+        "tab": "c58dbe72728e8599",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f1868b0174764182",
+        "type": "mqtt-broker",
+        "name": "Broker Público",
+        "broker": "3.75.150.118",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "d727afbe0879bc63",
+        "type": "ui_group",
+        "name": "Historico",
+        "tab": "c58dbe72728e8599",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c58dbe72728e8599",
+        "type": "ui_tab",
+        "name": "Detector de gases",
+        "icon": "dashboard",
+        "order": 7,
+        "disabled": false,
+        "hidden": false
+    }
+]
