@@ -13,7 +13,7 @@ Conexiones:
 ESP32CAM    MQ135
 5v----------VCC
 GND---------GND
-GPIO14------A0
+GPIO15------A0
 */
 
 #define MQ135_PIN 15
