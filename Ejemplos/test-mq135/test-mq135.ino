@@ -36,7 +36,7 @@ void loop() {
   RS_gas = (5.0-sensor_volt)/sensor_volt; // Conversion a resistencia del sensor
   ratio = RS_gas/R0; // Calculo de la relación RS/R0
   
-  ppm_log = (log10(ratio)-0.42)/-0.42; // Fórmula de la hoja de datos para CO2
+  ppm_log = (log10(ratio)-2.3)/-1.36; // Fórmula de la hoja de datos para CO2
   ppm = pow(10, ppm_log);
   
   Serial.print("RS/R0 = ");
